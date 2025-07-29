@@ -1,0 +1,242 @@
+tag: ~ACTIVEPDEF
+types: value (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+value,source_filename,module_type,submodule,module_name
+PDEF-1,SysSettings,syssettings,main,SYSSETTINGS
+
+
+tag: ~BOOKREGIONS_MAP
+types: bookname (object), region (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+bookname,region,source_filename,module_type,submodule,module_name
+REG,REG1,SysSettings,syssettings,main,SYSSETTINGS
+
+
+tag: ~CURRENCIES
+types: currency (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+currency,source_filename,module_type,submodule,module_name
+MEURO05,SysSettings,syssettings,main,SYSSETTINGS
+
+
+tag: ~DEFUNITS
+types: option (object), pri (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+option,pri,source_filename,module_type,submodule,module_name
+PROCESS_ACTUNIT,PJ,SysSettings,syssettings,main,SYSSETTINGS
+PROCESS_CAPUNIT,PJA,SysSettings,syssettings,main,SYSSETTINGS
+COMMODITY_UNIT,PJ,SysSettings,syssettings,main,SYSSETTINGS
+
+
+tag: ~FI_COMM
+types: csets (object), commodity (object), description (object), unit (object), limtype (object), ctslvl (object), region (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+csets,commodity,description,unit,limtype,ctslvl,region,source_filename,module_type,submodule,module_name
+NRG,COA,SOLID FUELS,PJ,,,REG1,VT_REG_PRI_V01,base,main,BASE
+DEM,TPSCOA,DEMAND TOTAL PRIMARY SUPPLY - COA,PJ,,,REG1,VT_REG_PRI_V01,base,main,BASE
+
+
+tag: ~FI_PROCESS
+types: sets (object), process (object), description (object), tact (object), tslvl (object), primarycg (object), region (object), vintage (object), source_filename (object), module_type (object), submodule (object), module_name (object), tcap (object)
+sets,process,description,tact,tslvl,primarycg,region,vintage,source_filename,module_type,submodule,module_name,tcap
+IRE,MINCOA1,DOMESTIC SUPPLY OF SOLID FUELS STEP 1,PJ,ANNUAL,,REG1,,VT_REG_PRI_V01,base,main,BASE,
+IRE,MINCOA2,DOMESTIC SUPPLY OF SOLID FUELS STEP 2,PJ,ANNUAL,,REG1,,VT_REG_PRI_V01,base,main,BASE,
+IRE,MINCOA3,DOMESTIC SUPPLY OF SOLID FUELS STEP 3,PJ,ANNUAL,,REG1,,VT_REG_PRI_V01,base,main,BASE,
+IRE,IMPCOA1,IMPORT OF SOLID FUELS STEP 1,PJ,ANNUAL,,REG1,,VT_REG_PRI_V01,base,main,BASE,
+IRE,EXPCOA1,EXPORT OF SOLID FUELS STEP 1,PJ,ANNUAL,,REG1,,VT_REG_PRI_V01,base,main,BASE,
+DMD,DTPSCOA,DEMAND TECHNOLOGY TOTAL PRIMARY SUPPLY - COA,PJ,ANNUAL,,REG1,,VT_REG_PRI_V01,base,main,BASE,PJA
+
+
+tag: ~FI_T
+types: region (object), limtype (object), year (object), process (object), attribute (object), value (object), source_filename (object), module_type (object), module_name (object), commodity (object), timeslice (object), cg (object), currency (object), other_indexes (object), year2 (object)
+region,limtype,year,process,attribute,value,source_filename,module_type,module_name,commodity,timeslice,cg,currency,other_indexes,year2
+REG1,UP,2005,MINCOA1,ACT_CUM,80000,VT_REG_PRI_V01,base,BASE,,,,MEURO05,,EOH
+REG1,UP,2005,MINCOA2,ACT_CUM,160000,VT_REG_PRI_V01,base,BASE,,,,MEURO05,,EOH
+REG1,UP,2005,MINCOA3,ACT_CUM,320000,VT_REG_PRI_V01,base,BASE,,,,MEURO05,,EOH
+REG1,UP,2005,MINCOA1,IRE_PRICE,2,VT_REG_PRI_V01,base,BASE,COA,ANNUAL,,MEURO05,IMP,
+REG1,UP,2005,MINCOA2,IRE_PRICE,2.5,VT_REG_PRI_V01,base,BASE,COA,ANNUAL,,MEURO05,IMP,
+REG1,,2005,MINCOA3,IRE_PRICE,3,VT_REG_PRI_V01,base,BASE,COA,ANNUAL,,MEURO05,IMP,
+REG1,,2005,IMPCOA1,IRE_PRICE,2.75,VT_REG_PRI_V01,base,BASE,COA,ANNUAL,,MEURO05,IMP,
+REG1,UP,2005,EXPCOA1,IRE_PRICE,2.75,VT_REG_PRI_V01,base,BASE,COA,ANNUAL,,MEURO05,EXP,
+REG1,UP,2005,MINCOA1,ACT_BND,6073.7685,VT_REG_PRI_V01,base,BASE,,ANNUAL,,MEURO05,,
+REG1,UP,2006,MINCOA1,ACT_BND,6073.7685,VT_REG_PRI_V01,base,BASE,,ANNUAL,,MEURO05,,
+REG1,UP,2005,MINCOA2,ACT_BND,2024.5895,VT_REG_PRI_V01,base,BASE,,ANNUAL,,MEURO05,,
+REG1,UP,2006,MINCOA2,ACT_BND,2024.5895,VT_REG_PRI_V01,base,BASE,,ANNUAL,,MEURO05,,
+REG1,UP,2005,EXPCOA1,ACT_BND,1147.069,VT_REG_PRI_V01,base,BASE,,ANNUAL,,MEURO05,,
+REG1,UP,2006,EXPCOA1,ACT_BND,1147.069,VT_REG_PRI_V01,base,BASE,,ANNUAL,,MEURO05,,
+REG1,,2005,DTPSCOA,ACT_EFF,1,VT_REG_PRI_V01,base,BASE,,ANNUAL,ACT,MEURO05,,
+REG1,UP,2005,DTPSCOA,NCAP_AFA,0.95,VT_REG_PRI_V01,base,BASE,,,,MEURO05,,
+REG1,,2005,DTPSCOA,NCAP_COST,10,VT_REG_PRI_V01,base,BASE,,,,MEURO05,,
+REG1,,2005,DTPSCOA,NCAP_FOM,0.2,VT_REG_PRI_V01,base,BASE,,,,MEURO05,,
+REG1,,2005,DTPSCOA,NCAP_TLIFE,20,VT_REG_PRI_V01,base,BASE,,,,MEURO05,,
+REG1,,2005,,COM_PROJ,13413.96,VT_REG_PRI_V01,base,BASE,TPSCOA,,,MEURO05,,
+REG1,,2005,,G_DYEAR,2005,SysSettings,syssettings,SYSSETTINGS,,,,MEURO05,,
+REG1,,2005,,G_DRATE,0.05,SysSettings,syssettings,SYSSETTINGS,,,,MEURO05,,
+REG1,,2005,,G_YRFR,1,SysSettings,syssettings,SYSSETTINGS,,ANNUAL,,MEURO05,,
+
+
+tag: ~STARTYEAR
+types: value (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+value,source_filename,module_type,submodule,module_name
+2005,SysSettings,syssettings,main,SYSSETTINGS
+
+
+tag: ~TFM_CSETS
+types: cset_set (object), cset_cn (object), cset_cd (object), set_name (object), t_pos_andor (object), t_neg_andor (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+cset_set,cset_cn,cset_cd,set_name,t_pos_andor,t_neg_andor,source_filename,module_type,submodule,module_name
+,*ELC*,",-*PLANTS*",NRG_ELC,AND,AND,Sets-DemoModels,sets,main,SETS
+,*GAS*,,NRG_GAS,AND,AND,Sets-DemoModels,sets,main,SETS
+"NRG,-NRG_ELC,-NRG_GAS,-NRG_NUK,-NRG_PP,-NRG_RNW,-NRG_SOLID",*,,NRG_MISS,AND,AND,Sets-DemoModels,sets,main,SETS
+,*NUC*,,NRG_NUK,AND,AND,Sets-DemoModels,sets,main,SETS
+,"*OIL*,*DSL*,*LPG*,*GSL*,*KER*,*OPP*,*HFO*,*NAP*",,NRG_PP,AND,AND,Sets-DemoModels,sets,main,SETS
+,"*BIO*,*SOL*,*WIN*,*RNW*,*HYD*,-*SOLID*,-ELCRNW,-RNW",,NRG_RNW,AND,AND,Sets-DemoModels,sets,main,SETS
+,,*SOLID*,NRG_SOLID,AND,AND,Sets-DemoModels,sets,main,SETS
+,*ELC*,",-*PLANTS*",NRG_ELC,AND,AND,Sets-DemoModels,sets,main,SETS
+,*GAS*,,NRG_GAS,AND,AND,Sets-DemoModels,sets,main,SETS
+"NRG,-NRG_ELC,-NRG_GAS,-NRG_NUK,-NRG_PP,-NRG_RNW,-NRG_SOLID",*,,NRG_MISS,AND,AND,Sets-DemoModels,sets,main,SETS
+,*NUC*,,NRG_NUK,AND,AND,Sets-DemoModels,sets,main,SETS
+,"*OIL*,*DSL*,*LPG*,*GSL*,*KER*,*OPP*,*HFO*,*NAP*",,NRG_PP,AND,AND,Sets-DemoModels,sets,main,SETS
+,"*BIO*,*SOL*,*WIN*,*RNW*,*HYD*,-*SOLID*,-ELCRNW,-RNW",,NRG_RNW,AND,AND,Sets-DemoModels,sets,main,SETS
+,,*SOLID*,NRG_SOLID,AND,AND,Sets-DemoModels,sets,main,SETS
+,*ELC*,",-*PLANTS*",NRG_ELC,AND,AND,Sets-DemoModels,sets,main,SETS
+,*GAS*,,NRG_GAS,AND,AND,Sets-DemoModels,sets,main,SETS
+"NRG,-NRG_ELC,-NRG_GAS,-NRG_NUK,-NRG_PP,-NRG_RNW,-NRG_SOLID",*,,NRG_MISS,AND,AND,Sets-DemoModels,sets,main,SETS
+,*NUC*,,NRG_NUK,AND,AND,Sets-DemoModels,sets,main,SETS
+,"*OIL*,*DSL*,*LPG*,*GSL*,*KER*,*OPP*,*HFO*,*NAP*",,NRG_PP,AND,AND,Sets-DemoModels,sets,main,SETS
+,"*BIO*,*SOL*,*WIN*,*RNW*,*HYD*,-*SOLID*,-ELCRNW,-RNW",,NRG_RNW,AND,AND,Sets-DemoModels,sets,main,SETS
+,,*SOLID*,NRG_SOLID,AND,AND,Sets-DemoModels,sets,main,SETS
+,*ELC*,",-*PLANTS*",NRG_ELC,AND,AND,Sets-DemoModels,sets,main,SETS
+,*GAS*,,NRG_GAS,AND,AND,Sets-DemoModels,sets,main,SETS
+"NRG,-NRG_ELC,-NRG_GAS,-NRG_NUK,-NRG_PP,-NRG_RNW,-NRG_SOLID",*,,NRG_MISS,AND,AND,Sets-DemoModels,sets,main,SETS
+,*NUC*,,NRG_NUK,AND,AND,Sets-DemoModels,sets,main,SETS
+,"*OIL*,*DSL*,*LPG*,*GSL*,*KER*,*OPP*,*HFO*,*NAP*",,NRG_PP,AND,AND,Sets-DemoModels,sets,main,SETS
+,"*BIO*,*SOL*,*WIN*,*RNW*,*HYD*,-*SOLID*,-ELCRNW,-RNW",,NRG_RNW,AND,AND,Sets-DemoModels,sets,main,SETS
+,,*SOLID*,NRG_SOLID,AND,AND,Sets-DemoModels,sets,main,SETS
+
+
+tag: ~TFM_INS
+types: timeslice (object), attribute (object), value (object), region (object), source_filename (object), module_type (object), submodule (object), module_name (object), original_attr (object), currency (object), year (object), year2 (object)
+timeslice,attribute,value,region,source_filename,module_type,submodule,module_name,original_attr,currency,year,year2
+,G_DYEAR,2005,REG1,SysSettings,syssettings,main,SYSSETTINGS,G_DYEAR,MEURO05,2005,
+,G_DRATE,0.05,REG1,SysSettings,syssettings,main,SYSSETTINGS,DISCOUNT,MEURO05,2005,
+ANNUAL,G_YRFR,1,REG1,SysSettings,syssettings,main,SYSSETTINGS,YRFR,MEURO05,2005,
+
+
+tag: ~TFM_MIG
+types: attribute (object), value (object), region (object), source_filename (object), module_type (object), submodule (object), module_name (object), process (object), original_attr (object), currency (object), year (object), year2 (float64)
+attribute,value,region,source_filename,module_type,submodule,module_name,process,original_attr,currency,year,year2
+ACT_COST,2222,REG1,SysSettings,syssettings,main,SYSSETTINGS,,ACTCOST,,,
+ACT_COST,8888,REG1,SysSettings,syssettings,main,SYSSETTINGS,,ACTCOST,,,
+
+
+tag: ~TFM_PSETS
+types: pset_set (object), pset_pn (object), pset_ci (object), pset_co (object), set_name (object), and_or_positive_dimension (object), and_or_negative_dimension (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+pset_set,pset_pn,pset_ci,pset_co,set_name,and_or_positive_dimension,and_or_negative_dimension,source_filename,module_type,submodule,module_name
+,IMP*Z,,,DUMIMP,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*COA,,ECOA,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCBIO,,ELEBIO,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*COA*,,ELECOA,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*GAS*,,ELEGAS,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCHYD,,ELEHYD,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*NUC*,,ELENUC,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*OIL*,,ELEOIL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*RNW*,,ELERNW,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCSOL,,ELESOL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCWIN,,ELEWIN,AND,AND,Sets-DemoModels,sets,main,SETS
+,EXP*,,,EXP,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,AGR*,FUEL_AGR,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,COM*,FUEL_COM,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,IND*,FUEL_IND,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,RSD*,FUEL_RSD,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,TRA*,FUEL_TRA,AND,AND,Sets-DemoModels,sets,main,SETS
+,FT*,,,FUELTECH,AND,AND,Sets-DemoModels,sets,main,SETS
+,IMP*,,,IMP,AND,AND,Sets-DemoModels,sets,main,SETS
+IRE,MIN*,,,MIN,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,"*COA*,*GAS*,*NGA*,*OIL*",,PP_FOSSIL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*NUC,,PP_NUCLEAR,AND,AND,Sets-DemoModels,sets,main,SETS
+"ELE,-PP_FOSSIL,-PP_NUCLEAR,-PP_RENEW",*,,,PP_OTHER,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,PPFOSSIL,AND,AND,Sets-DemoModels,sets,main,SETS
+IRE,T*,,,TRD_ENDO,AND,AND,Sets-DemoModels,sets,main,SETS
+,IMP*Z,,,DUMIMP,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*COA,,ECOA,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCBIO,,ELEBIO,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*COA*,,ELECOA,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*GAS*,,ELEGAS,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCHYD,,ELEHYD,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*NUC*,,ELENUC,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*OIL*,,ELEOIL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*RNW*,,ELERNW,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCSOL,,ELESOL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCWIN,,ELEWIN,AND,AND,Sets-DemoModels,sets,main,SETS
+,EXP*,,,EXP,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,AGR*,FUEL_AGR,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,COM*,FUEL_COM,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,IND*,FUEL_IND,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,RSD*,FUEL_RSD,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,TRA*,FUEL_TRA,AND,AND,Sets-DemoModels,sets,main,SETS
+,FT*,,,FUELTECH,AND,AND,Sets-DemoModels,sets,main,SETS
+,IMP*,,,IMP,AND,AND,Sets-DemoModels,sets,main,SETS
+IRE,MIN*,,,MIN,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,"*COA*,*GAS*,*NGA*,*OIL*",,PP_FOSSIL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*NUC,,PP_NUCLEAR,AND,AND,Sets-DemoModels,sets,main,SETS
+"ELE,-PP_FOSSIL,-PP_NUCLEAR,-PP_RENEW",*,,,PP_OTHER,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,PPFOSSIL,AND,AND,Sets-DemoModels,sets,main,SETS
+IRE,T*,,,TRD_ENDO,AND,AND,Sets-DemoModels,sets,main,SETS
+,IMP*Z,,,DUMIMP,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*COA,,ECOA,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCBIO,,ELEBIO,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*COA*,,ELECOA,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*GAS*,,ELEGAS,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCHYD,,ELEHYD,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*NUC*,,ELENUC,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*OIL*,,ELEOIL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*RNW*,,ELERNW,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCSOL,,ELESOL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCWIN,,ELEWIN,AND,AND,Sets-DemoModels,sets,main,SETS
+,EXP*,,,EXP,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,AGR*,FUEL_AGR,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,COM*,FUEL_COM,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,IND*,FUEL_IND,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,RSD*,FUEL_RSD,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,TRA*,FUEL_TRA,AND,AND,Sets-DemoModels,sets,main,SETS
+,FT*,,,FUELTECH,AND,AND,Sets-DemoModels,sets,main,SETS
+,IMP*,,,IMP,AND,AND,Sets-DemoModels,sets,main,SETS
+IRE,MIN*,,,MIN,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,"*COA*,*GAS*,*NGA*,*OIL*",,PP_FOSSIL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*NUC,,PP_NUCLEAR,AND,AND,Sets-DemoModels,sets,main,SETS
+"ELE,-PP_FOSSIL,-PP_NUCLEAR,-PP_RENEW",*,,,PP_OTHER,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,PPFOSSIL,AND,AND,Sets-DemoModels,sets,main,SETS
+IRE,T*,,,TRD_ENDO,AND,AND,Sets-DemoModels,sets,main,SETS
+,IMP*Z,,,DUMIMP,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*COA,,ECOA,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCBIO,,ELEBIO,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*COA*,,ELECOA,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*GAS*,,ELEGAS,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCHYD,,ELEHYD,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*NUC*,,ELENUC,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*OIL*,,ELEOIL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*RNW*,,ELERNW,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCSOL,,ELESOL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,ELCWIN,,ELEWIN,AND,AND,Sets-DemoModels,sets,main,SETS
+,EXP*,,,EXP,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,AGR*,FUEL_AGR,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,COM*,FUEL_COM,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,IND*,FUEL_IND,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,RSD*,FUEL_RSD,AND,AND,Sets-DemoModels,sets,main,SETS
+PRE,,,TRA*,FUEL_TRA,AND,AND,Sets-DemoModels,sets,main,SETS
+,FT*,,,FUELTECH,AND,AND,Sets-DemoModels,sets,main,SETS
+,IMP*,,,IMP,AND,AND,Sets-DemoModels,sets,main,SETS
+IRE,MIN*,,,MIN,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,"*COA*,*GAS*,*NGA*,*OIL*",,PP_FOSSIL,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,*NUC,,PP_NUCLEAR,AND,AND,Sets-DemoModels,sets,main,SETS
+"ELE,-PP_FOSSIL,-PP_NUCLEAR,-PP_RENEW",*,,,PP_OTHER,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,AND,AND,Sets-DemoModels,sets,main,SETS
+ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,PPFOSSIL,AND,AND,Sets-DemoModels,sets,main,SETS
+IRE,T*,,,TRD_ENDO,AND,AND,Sets-DemoModels,sets,main,SETS
+
+
+tag: ~TIMEPERIODS
+types: pdef-1 (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+pdef-1,source_filename,module_type,submodule,module_name
+1,SysSettings,syssettings,main,SYSSETTINGS
+2,SysSettings,syssettings,main,SYSSETTINGS
+
+

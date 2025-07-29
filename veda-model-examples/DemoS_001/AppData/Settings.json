@@ -1,0 +1,36 @@
+{
+  "InitialSetupComplete": true,
+  "VRQSettings": {
+    "ExpectedMemory": "4",
+    "MaxHitWaitTime": "2",
+    "Model": "DemoS_001",
+    "Priority": "10"
+  },
+  "GAMSFoldersListAndDefaults": {
+    "PathGAMSRoot": "D:\\Veda\\Veda2.0_localhost_4.0.6.0\\Veda",
+    "WorkTimes": "GAMS_WrkTIMES",
+    "SourceTimes": "GAMS_SrcTIMES.v4.8.3",
+    "ListOfSourceTimesFolder": [
+      "GAMS_SrcTIMES.v4.8.3"
+    ],
+    "ListOfWorkTimesFolder": [
+      "GAMS_WrkTIMES"
+    ]
+  },
+  "RmFormSettings": {
+    "IsDDWritingOnly": false,
+    "IsRestartOption": false,
+    "IsVRQ": false,
+    "MaxRun": "6",
+    "Solver": "GUROBI",
+    "SolverOption": "BA121-7",
+    "StudyName": "pilot_runs",
+    "IsGamsEngine": false,
+    "RemoveVdFiles": false,
+    "DoNotCreateCaseZipFile": true,
+    "GenerateJacobian": false
+  },
+  "RmCaseZipFilesStorage": {
+    "CaseZipFilesRootPath": "D:\\Veda\\Veda2.0_localhost_4.0.6.0\\Veda\\Veda_case_zip_files"
+  }
+}

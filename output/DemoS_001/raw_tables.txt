@@ -1,0 +1,367 @@
+sheetname: Region-Time Slices
+range: B4:D6
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~BookRegions_Map
+types: BookName (object), Region (object)
+BookName,Region
+REG,REG1
+
+
+sheetname: Region-Time Slices
+range: H4:K6
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~TimeSlices
+types: Season (object), Weekly (object), DayNite (object)
+Season,Weekly,DayNite
+ANNUAL,,
+
+
+sheetname: TimePeriods
+range: B4:C5
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~StartYear
+types: VALUE (object)
+VALUE
+2005
+
+
+sheetname: TimePeriods
+range: B8:C9
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~ActivePDef
+types: VALUE (object)
+VALUE
+Pdef-1
+
+
+sheetname: TimePeriods
+range: B12:C15
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~TimePeriods
+types: Pdef-1 (object)
+Pdef-1
+1
+2
+
+
+sheetname: Import Settings
+range: B4:D10
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~ImpSettings
+types: Option (object), Value (object)
+Option,Value
+Check #DIV/0 and #REF errors in Templates,1
+Create Dummy Imports for Energy and Material Commodities,1
+Create Dummy Imports for Demands,1
+Generate Vintage Bounds,0
+DumVarforUC,0
+
+
+sheetname: Interpol_Extrapol_Defaults
+range: B17:R20
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~TFM_MIG
+types: TimeSlice (object), LimType (object), Attribute (object), Year2 (object), Other_Indexes (object), AllRegions (object), REG1 (object), REG2 (object), Pset_Set (object), Pset_PN (object), Pset_PD (object), Pset_CI (object), Pset_CO (object), Cset_Set (object), Cset_CN (object), Cset_CD (object)
+TimeSlice,LimType,Attribute,Year2,Other_Indexes,AllRegions,REG1,REG2,Pset_Set,Pset_PN,Pset_PD,Pset_CI,Pset_CO,Cset_Set,Cset_CN,Cset_CD
+,,ACTCOST,,,2222,,,IRE,IMP*Z,,,,,,
+,,ACTCOST,,,8888,,,IRE,IMPDEMZ,,,,,,
+
+
+sheetname: Constants
+range: B6:H10
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~TFM_INS
+types: TimeSlice (object), LimType (object), Attribute (object), AllRegions (object), REG1 (object), Cset_CN (object)
+TimeSlice,LimType,Attribute,AllRegions,REG1,Cset_CN
+,,G_DYEAR,2005,,
+,,Discount,0.05,,
+ANNUAL,,YRFR,1,,
+
+
+sheetname: Defaults
+range: B3:C5
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~Currencies
+types: Currency (object)
+Currency
+MEuro05
+
+
+sheetname: Defaults
+range: D3:F7
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~DefUnits
+types: Option (object), PRI (object)
+Option,PRI
+Process_ActUnit,PJ
+Process_CapUnit,Pja
+Commodity_Unit,PJ
+
+
+sheetname: Commodity Group
+range: B6:J8
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
+tag: ~TFM_COMGRP
+types: Name (object), Description (object), Cset_Set (object), Cset_CN (object), Cset_CD (object), AllRegions (object), REG1 (object), REG2 (object)
+Name,Description,Cset_Set,Cset_CN,Cset_CD,AllRegions,REG1,REG2
+\I:Commodity Group Name,Commodity Group Description,,,,,,
+
+
+sheetname: Trans Tables
+range: B6:P7
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
+tag: ~TFM_UPD
+types: TimeSlice (object), LimType (object), Attribute (object), Year (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object), Pset_PD (object), Pset_CI (object), Pset_CO (object), Cset_Set (object), Cset_CN (object), Cset_CD (object)
+TimeSlice,LimType,Attribute,Year,AllRegions,REG1,Pset_Set,Pset_PN,Pset_PD,Pset_CI,Pset_CO,Cset_Set,Cset_CN,Cset_CD
+
+
+sheetname: Trans Tables
+range: B14:P15
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
+tag: ~TFM_INS
+types: TimeSlice (object), LimType (object), Attribute (object), Year (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object), Pset_PD (object), Pset_CI (object), Pset_CO (object), Cset_Set (object), Cset_CN (object), Cset_CD (object)
+TimeSlice,LimType,Attribute,Year,AllRegions,REG1,Pset_Set,Pset_PN,Pset_PD,Pset_CI,Pset_CO,Cset_Set,Cset_CN,Cset_CD
+
+
+sheetname: FILL Table
+range: B3:N4
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
+tag: ~TFM_FILL
+types: Operation_Sum_Avg_Count (object), Scenario Name (object), TimeSlice (object), LimType (object), Attribute (object), Year (object), Other_Indexes (object), Tech_Comm_Info (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object)
+Operation_Sum_Avg_Count,Scenario Name,TimeSlice,LimType,Attribute,Year,Other_Indexes,Tech_Comm_Info,AllRegions,REG1,Pset_Set,Pset_PN
+
+
+sheetname: Pri_COA
+range: K3:T6
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_Comm
+types: Csets (object), Region (object), CommName (object), CommDesc (object), Unit (object), LimType (object), CTSLvl (object), PeakTS (object), Ctype (object)
+Csets,Region,CommName,CommDesc,Unit,LimType,CTSLvl,PeakTS,Ctype
+*Commodity Set Membership,Region Name,Commodity Name,Commodity Description,Unit,Sense of the Balance EQN.,Timeslice Level,Peak Monitoring,Electricity Indicator
+NRG,,COA,Solid Fuels,PJ,,,,
+
+
+sheetname: Pri_COA
+range: B8:J19
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_T
+types: TechName (object), Comm-IN (object), Comm-OUT (object), Year (object), LimType (object), CUM (object), COST (object), ACT_BND (object)
+TechName,Comm-IN,Comm-OUT,Year,LimType,CUM,COST,ACT_BND
+*Technology Name,Input Commodity,Output Commodity,,,Reserves Cumulative Value,Cost,Annual Production Bound
+*Units,,,,,PJ,M€2005/PJ,PJ
+MINCOA1,,COA,2005,UP,80000,2,6073.7685
+,,,2006,UP,,,6073.7685
+MINCOA2,,COA,2005,UP,160000,2.5,2024.5895
+,,,2006,UP,,,2024.5895
+MINCOA3,,COA,,,320000,3,
+IMPCOA1,,COA,,,,2.75,
+EXPCOA1,COA,,2005,UP,,2.75,1147.069
+,,,2006,UP,,,1147.069
+
+
+sheetname: Pri_COA
+range: K8:T16
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_Process
+types: Sets (object), Region (object), TechName (object), TechDesc (object), Tact (object), Tcap (object), Tslvl (object), PrimaryCG (object), Vintage (object)
+Sets,Region,TechName,TechDesc,Tact,Tcap,Tslvl,PrimaryCG,Vintage
+*Process Set Membership,Region Name,Technology Name,Technology Description,Activity Unit,Capacity Unit,TimeSlice level of Process Activity,Primary Commodity Group,Vintage Tracking
+*,,,,,,,,
+MIN,,MINCOA1,Domestic Supply of Solid Fuels Step 1,PJ,,,,
+,,MINCOA2,Domestic Supply of Solid Fuels Step 2,PJ,,,,
+,,MINCOA3,Domestic Supply of Solid Fuels Step 3,PJ,,,,
+IMP,,IMPCOA1,Import of Solid Fuels Step 1,PJ,,,,
+EXP,,EXPCOA1,Export of Solid Fuels Step 1,PJ,,,,
+
+
+sheetname: DemTechs_TPS
+range: L3:U6
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_Comm
+types: Csets (object), Region (object), CommName (object), CommDesc (object), Unit (object), LimType (object), CTSLvl (object), PeakTS (object), Ctype (object)
+Csets,Region,CommName,CommDesc,Unit,LimType,CTSLvl,PeakTS,Ctype
+*Commodity Set Membership,Region Name,Commodity Name,Commodity Description,Unit,Sense of the Balance EQN.,Timeslice Level,Peak Monitoring,Electricity Indicator
+DEM,,TPSCOA,Demand Total Primary Supply - COA,PJ,,,,
+
+
+sheetname: DemTechs_TPS
+range: B9:K13
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_T
+types: TechName (object), Comm-IN (object), Comm-OUT (object), STOCK (object), EFF (object), AFA (object), INVCOST (object), FIXOM (object), LIFE (object)
+TechName,Comm-IN,Comm-OUT,STOCK,EFF,AFA,INVCOST,FIXOM,LIFE
+*Technology Name,Input Commodity,Output Commodity,Existing Installed Capacity,Efficiency,Utilisation Factor,Invesctment Cost,Fixed O&M Cost,Lifetime
+*Units,,,PJa,,,M€2005/PJ,M€2005/PJa,Years
+DTPSCOA,COA,TPSCOA,,1,0.95,10,0.2,20
+
+
+sheetname: DemTechs_TPS
+range: L9:U13
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_Process
+types: Sets (object), Region (object), TechName (object), TechDesc (object), Tact (object), Tcap (object), Tslvl (object), PrimaryCG (object), Vintage (object)
+Sets,Region,TechName,TechDesc,Tact,Tcap,Tslvl,PrimaryCG,Vintage
+*Process Set Membership,Region Name,Technology Name,Technology Description,Activity Unit,Capacity Unit,TimeSlice level of Process Activity,Primary Commodity Group,Vintage Tracking
+*,,,,,,,,
+DMD,,DTPSCOA,Demand Technology Total Primary Supply - COA,PJ,PJa,,,
+
+
+sheetname: Demands
+range: B6:F10
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_T
+types: Attribute (object), CommName (object), *Unit (object), 2005 (object)
+Attribute,CommName,*Unit,2005
+*,Demand Commodity Name,Demand Unit,Demand Value
+*Units,,,PJ
+Demand,TPSCOA,PJ,13413.96
+
+
+sheetname: VEDA_Sets-Comm
+range: A2:I31
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/Sets-DemoModels.xlsx
+tag: ~TFM_Csets
+types: CSET_SET (object), CSET_CN (object), CSET_CD (object), SetName (object), SetDesc (object), T_Pos_AndOr (object), T_Neg_AndOr (object), Comment (object)
+CSET_SET,CSET_CN,CSET_CD,SetName,SetDesc,T_Pos_AndOr,T_Neg_AndOr,Comment
+,*ELC*,",-*PLANTS*",NRG_ELC,,AND,AND,
+,*GAS*,,NRG_GAS,,AND,AND,
+"NRG,-NRG_ELC,-NRG_GAS,-NRG_NUK,-NRG_PP,-NRG_RNW,-NRG_SOLID",*,,NRG_MISS,,AND,AND,
+,*NUC*,,NRG_NUK,,AND,AND,
+,"*OIL*,*DSL*,*LPG*,*GSL*,*KER*,*OPP*,*HFO*,*NAP*",,NRG_PP,,AND,AND,
+,"*BIO*,*SOL*,*WIN*,*RNW*,*HYD*,-*SOLID*,-ELCRNW,-RNW",,NRG_RNW,,AND,AND,
+,,*SOLID*,NRG_SOLID,,AND,AND,
+,*ELC*,",-*PLANTS*",NRG_ELC,,AND,AND,
+,*GAS*,,NRG_GAS,,AND,AND,
+"NRG,-NRG_ELC,-NRG_GAS,-NRG_NUK,-NRG_PP,-NRG_RNW,-NRG_SOLID",*,,NRG_MISS,,AND,AND,
+,*NUC*,,NRG_NUK,,AND,AND,
+,"*OIL*,*DSL*,*LPG*,*GSL*,*KER*,*OPP*,*HFO*,*NAP*",,NRG_PP,,AND,AND,
+,"*BIO*,*SOL*,*WIN*,*RNW*,*HYD*,-*SOLID*,-ELCRNW,-RNW",,NRG_RNW,,AND,AND,
+,,*SOLID*,NRG_SOLID,,AND,AND,
+,*ELC*,",-*PLANTS*",NRG_ELC,,AND,AND,
+,*GAS*,,NRG_GAS,,AND,AND,
+"NRG,-NRG_ELC,-NRG_GAS,-NRG_NUK,-NRG_PP,-NRG_RNW,-NRG_SOLID",*,,NRG_MISS,,AND,AND,
+,*NUC*,,NRG_NUK,,AND,AND,
+,"*OIL*,*DSL*,*LPG*,*GSL*,*KER*,*OPP*,*HFO*,*NAP*",,NRG_PP,,AND,AND,
+,"*BIO*,*SOL*,*WIN*,*RNW*,*HYD*,-*SOLID*,-ELCRNW,-RNW",,NRG_RNW,,AND,AND,
+,,*SOLID*,NRG_SOLID,,AND,AND,
+,*ELC*,",-*PLANTS*",NRG_ELC,,AND,AND,
+,*GAS*,,NRG_GAS,,AND,AND,
+"NRG,-NRG_ELC,-NRG_GAS,-NRG_NUK,-NRG_PP,-NRG_RNW,-NRG_SOLID",*,,NRG_MISS,,AND,AND,
+,*NUC*,,NRG_NUK,,AND,AND,
+,"*OIL*,*DSL*,*LPG*,*GSL*,*KER*,*OPP*,*HFO*,*NAP*",,NRG_PP,,AND,AND,
+,"*BIO*,*SOL*,*WIN*,*RNW*,*HYD*,-*SOLID*,-ELCRNW,-RNW",,NRG_RNW,,AND,AND,
+,,*SOLID*,NRG_SOLID,,AND,AND,
+
+
+sheetname: VEDA_Sets-Proc
+range: A2:K107
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/Sets-DemoModels.xlsx
+tag: ~TFM_Psets
+types: PSET_SET (object), PSET_PN (object), PSET_PD (object), PSET_CI (object), PSET_CO (object), SetName (object), SetDesc (object), T_Pos_AndOr (object), T_Neg_AndOr (object), Comment (object)
+PSET_SET,PSET_PN,PSET_PD,PSET_CI,PSET_CO,SetName,SetDesc,T_Pos_AndOr,T_Neg_AndOr,Comment
+,IMP*Z,,,,DUMIMP,,AND,AND,
+ELE,,,*COA,,ECOA,,AND,AND,
+ELE,,,ELCBIO,,ELEBIO,,AND,AND,
+ELE,,,*COA*,,ELECOA,,AND,AND,
+ELE,,,*GAS*,,ELEGAS,,AND,AND,
+ELE,,,ELCHYD,,ELEHYD,,AND,AND,
+ELE,,,*NUC*,,ELENUC,,AND,AND,
+ELE,,,*OIL*,,ELEOIL,,AND,AND,
+ELE,,,*RNW*,,ELERNW,,AND,AND,
+ELE,,,ELCSOL,,ELESOL,,AND,AND,
+ELE,,,ELCWIN,,ELEWIN,,AND,AND,
+,EXP*,,,,EXP,,AND,AND,
+PRE,,,,AGR*,FUEL_AGR,,AND,AND,
+PRE,,,,COM*,FUEL_COM,,AND,AND,
+PRE,,,,IND*,FUEL_IND,,AND,AND,
+PRE,,,,RSD*,FUEL_RSD,,AND,AND,
+PRE,,,,TRA*,FUEL_TRA,,AND,AND,
+,FT*,,,,FUELTECH,,AND,AND,
+,IMP*,,,,IMP,,AND,AND,
+IRE,MIN*,,,,MIN,,AND,AND,
+ELE,,,"*COA*,*GAS*,*NGA*,*OIL*",,PP_FOSSIL,,AND,AND,
+ELE,,,*NUC,,PP_NUCLEAR,,AND,AND,
+"ELE,-PP_FOSSIL,-PP_NUCLEAR,-PP_RENEW",*,,,,PP_OTHER,,AND,AND,
+ELE,,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,,AND,AND,
+ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,,PPFOSSIL,,AND,AND,
+IRE,T*,,,,TRD_ENDO,,AND,AND,
+,IMP*Z,,,,DUMIMP,,AND,AND,
+ELE,,,*COA,,ECOA,,AND,AND,
+ELE,,,ELCBIO,,ELEBIO,,AND,AND,
+ELE,,,*COA*,,ELECOA,,AND,AND,
+ELE,,,*GAS*,,ELEGAS,,AND,AND,
+ELE,,,ELCHYD,,ELEHYD,,AND,AND,
+ELE,,,*NUC*,,ELENUC,,AND,AND,
+ELE,,,*OIL*,,ELEOIL,,AND,AND,
+ELE,,,*RNW*,,ELERNW,,AND,AND,
+ELE,,,ELCSOL,,ELESOL,,AND,AND,
+ELE,,,ELCWIN,,ELEWIN,,AND,AND,
+,EXP*,,,,EXP,,AND,AND,
+PRE,,,,AGR*,FUEL_AGR,,AND,AND,
+PRE,,,,COM*,FUEL_COM,,AND,AND,
+PRE,,,,IND*,FUEL_IND,,AND,AND,
+PRE,,,,RSD*,FUEL_RSD,,AND,AND,
+PRE,,,,TRA*,FUEL_TRA,,AND,AND,
+,FT*,,,,FUELTECH,,AND,AND,
+,IMP*,,,,IMP,,AND,AND,
+IRE,MIN*,,,,MIN,,AND,AND,
+ELE,,,"*COA*,*GAS*,*NGA*,*OIL*",,PP_FOSSIL,,AND,AND,
+ELE,,,*NUC,,PP_NUCLEAR,,AND,AND,
+"ELE,-PP_FOSSIL,-PP_NUCLEAR,-PP_RENEW",*,,,,PP_OTHER,,AND,AND,
+ELE,,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,,AND,AND,
+ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,,PPFOSSIL,,AND,AND,
+IRE,T*,,,,TRD_ENDO,,AND,AND,
+,IMP*Z,,,,DUMIMP,,AND,AND,
+ELE,,,*COA,,ECOA,,AND,AND,
+ELE,,,ELCBIO,,ELEBIO,,AND,AND,
+ELE,,,*COA*,,ELECOA,,AND,AND,
+ELE,,,*GAS*,,ELEGAS,,AND,AND,
+ELE,,,ELCHYD,,ELEHYD,,AND,AND,
+ELE,,,*NUC*,,ELENUC,,AND,AND,
+ELE,,,*OIL*,,ELEOIL,,AND,AND,
+ELE,,,*RNW*,,ELERNW,,AND,AND,
+ELE,,,ELCSOL,,ELESOL,,AND,AND,
+ELE,,,ELCWIN,,ELEWIN,,AND,AND,
+,EXP*,,,,EXP,,AND,AND,
+PRE,,,,AGR*,FUEL_AGR,,AND,AND,
+PRE,,,,COM*,FUEL_COM,,AND,AND,
+PRE,,,,IND*,FUEL_IND,,AND,AND,
+PRE,,,,RSD*,FUEL_RSD,,AND,AND,
+PRE,,,,TRA*,FUEL_TRA,,AND,AND,
+,FT*,,,,FUELTECH,,AND,AND,
+,IMP*,,,,IMP,,AND,AND,
+IRE,MIN*,,,,MIN,,AND,AND,
+ELE,,,"*COA*,*GAS*,*NGA*,*OIL*",,PP_FOSSIL,,AND,AND,
+ELE,,,*NUC,,PP_NUCLEAR,,AND,AND,
+"ELE,-PP_FOSSIL,-PP_NUCLEAR,-PP_RENEW",*,,,,PP_OTHER,,AND,AND,
+ELE,,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,,AND,AND,
+ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,,PPFOSSIL,,AND,AND,
+IRE,T*,,,,TRD_ENDO,,AND,AND,
+,IMP*Z,,,,DUMIMP,,AND,AND,
+ELE,,,*COA,,ECOA,,AND,AND,
+ELE,,,ELCBIO,,ELEBIO,,AND,AND,
+ELE,,,*COA*,,ELECOA,,AND,AND,
+ELE,,,*GAS*,,ELEGAS,,AND,AND,
+ELE,,,ELCHYD,,ELEHYD,,AND,AND,
+ELE,,,*NUC*,,ELENUC,,AND,AND,
+ELE,,,*OIL*,,ELEOIL,,AND,AND,
+ELE,,,*RNW*,,ELERNW,,AND,AND,
+ELE,,,ELCSOL,,ELESOL,,AND,AND,
+ELE,,,ELCWIN,,ELEWIN,,AND,AND,
+,EXP*,,,,EXP,,AND,AND,
+PRE,,,,AGR*,FUEL_AGR,,AND,AND,
+PRE,,,,COM*,FUEL_COM,,AND,AND,
+PRE,,,,IND*,FUEL_IND,,AND,AND,
+PRE,,,,RSD*,FUEL_RSD,,AND,AND,
+PRE,,,,TRA*,FUEL_TRA,,AND,AND,
+,FT*,,,,FUELTECH,,AND,AND,
+,IMP*,,,,IMP,,AND,AND,
+IRE,MIN*,,,,MIN,,AND,AND,
+ELE,,,"*COA*,*GAS*,*NGA*,*OIL*",,PP_FOSSIL,,AND,AND,
+ELE,,,*NUC,,PP_NUCLEAR,,AND,AND,
+"ELE,-PP_FOSSIL,-PP_NUCLEAR,-PP_RENEW",*,,,,PP_OTHER,,AND,AND,
+ELE,,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,,AND,AND,
+ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,,PPFOSSIL,,AND,AND,
+IRE,T*,,,,TRD_ENDO,,AND,AND,
+
+

@@ -1,0 +1,8 @@
+{
+  "IsNRGChecked": true,
+  "IsMATChecked": true,
+  "IsDEMChecked": true,
+  "IsUserConstraintChecked": true,
+  "ThreadCount": -1,
+  "IsFillRCompareChecked": true
+}
