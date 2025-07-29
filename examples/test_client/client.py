@@ -76,13 +76,12 @@ async def test_xl2times_server():
             except Exception as e:
                 print(f"❌ Unexpected error: {e}")
             
-            # Test xl2times_run tool with sample input (placeholder response)
-            print("\n🧪 Testing xl2times_run with sample input...")
+            # Test xl2times_run tool with real VEDA model
+            print("\n🧪 Testing xl2times_run with DemoS_001 VEDA model...")
             try:
                 test_args = {
-                    "input": "test_model.xlsx",
-                    "output_dir": "output",
-                    "regions": ["USA", "EUR"],
+                    "input": "veda-model-examples/DemoS_001",
+                    "output_dir": "output/test_client",
                     "verbose": 1
                 }
                 result = await session.call_tool("xl2times_run", arguments=test_args)
@@ -90,7 +89,37 @@ async def test_xl2times_server():
                     content = result.content[0]
                     if hasattr(content, 'text'):
                         response = json.loads(content.text)
-                        print(f"Response: {json.dumps(response, indent=2)}")
+                        
+                        print(f"✅ Success: {response.get('success', False)}")
+                        print(f"📄 Message: {response.get('message', '')}")
+                        print(f"⏱️  Execution time: {response.get('execution_time', 0):.2f}s")
+                        
+                        if response.get('files_processed'):
+                            print(f"📁 Files processed: {len(response['files_processed'])}")
+                            for f in response['files_processed']:
+                                print(f"   - {f}")
+                        
+                        if response.get('output_files'):
+                            print(f"📤 Output files generated: {len(response['output_files'])}")
+                            # Show first 5 output files
+                            for f in response['output_files'][:5]:
+                                print(f"   - {f.split('/')[-1]}")  # Just filename
+                            if len(response['output_files']) > 5:
+                                print(f"   ... and {len(response['output_files']) - 5} more")
+                        
+                        if response.get('warnings'):
+                            print(f"⚠️  Warnings: {len(response['warnings'])}")
+                            # Show first 3 warnings
+                            for w in response['warnings'][:3]:
+                                print(f"   - {w}")
+                            if len(response['warnings']) > 3:
+                                print(f"   ... and {len(response['warnings']) - 3} more")
+                        
+                        if response.get('errors'):
+                            print(f"❌ Errors: {len(response['errors'])}")
+                            for e in response['errors']:
+                                print(f"   - {e}")
+                        
             except Exception as e:
                 print(f"❌ Error calling xl2times_run: {e}")
             

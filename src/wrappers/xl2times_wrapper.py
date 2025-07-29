@@ -181,10 +181,18 @@ class XL2TimesWrapper:
             "output_files": []
         }
 
-        # Check for success message
-        if "successfully converted" in stdout.lower():
-            result["success"] = True
-            result["message"] = "Excel files successfully converted"
+        # Check for success message or completion indicators
+        success_indicators = [
+            "successfully converted",
+            "Excel files successfully converted to CSV",
+            "written to output"
+        ]
+        
+        for indicator in success_indicators:
+            if indicator in stdout.lower():
+                result["success"] = True
+                result["message"] = "Excel files successfully converted"
+                break
 
         # Extract processed files
         for line in stdout.split('\n'):
@@ -194,23 +202,54 @@ class XL2TimesWrapper:
                 if match:
                     result["files_processed"].append(match.group(1))
 
-        # Extract warnings
-        warning_pattern = r'WARNING\s*:\s*(.+)'
+        # Extract warnings from stdout
         for line in stdout.split('\n'):
-            match = re.search(warning_pattern, line, re.IGNORECASE)
-            if match:
-                result["warnings"].append(match.group(1).strip())
+            line = line.strip()
+            if not line:
+                continue
+                
+            # Check for various warning patterns
+            warning_match = None
+            if re.search(r'WARNING\s*:', line, re.IGNORECASE):
+                warning_match = re.search(r'WARNING\s*:\s*(.+)', line, re.IGNORECASE)
+            elif re.search(r'FutureWarning\s*:', line, re.IGNORECASE):
+                warning_match = re.search(r'FutureWarning\s*:\s*(.+)', line, re.IGNORECASE)
+            elif re.search(r'UserWarning\s*:', line, re.IGNORECASE):
+                warning_match = re.search(r'UserWarning\s*:\s*(.+)', line, re.IGNORECASE)
+            elif re.search(r'DeprecationWarning\s*:', line, re.IGNORECASE):
+                warning_match = re.search(r'DeprecationWarning\s*:\s*(.+)', line, re.IGNORECASE)
+            
+            if warning_match:
+                result["warnings"].append(warning_match.group(1).strip())
 
-        # Extract errors from stderr
+        # Extract actual errors from stderr (exclude warnings)
         if stderr:
             for line in stderr.split('\n'):
-                if line.strip() and 'error' in line.lower():
-                    result["errors"].append(line.strip())
+                line = line.strip()
+                if line and 'error' in line.lower():
+                    # Skip if it's actually a warning disguised as error in stderr
+                    if any(warn_type in line.lower() for warn_type in ['warning', 'futurewarning', 'userwarning', 'deprecationwarning']):
+                        # Treat as warning instead
+                        result["warnings"].append(line)
+                    else:
+                        result["errors"].append(line)
 
-        # If we have errors, mark as failed
+        # Determine final success status
+        # If we haven't found success indicators but have no real errors and have output, assume success
+        if not result["success"] and not result["errors"]:
+            # Look for signs of completion in stdout
+            if any(indicator in stdout.lower() for indicator in [
+                "loading", "extracted", "transform", "took", "seconds"
+            ]):
+                result["success"] = True
+                result["message"] = "Processing completed"
+
+        # Only mark as failed if we have actual errors (not warnings)
         if result["errors"]:
             result["success"] = False
             result["message"] = "Errors occurred during conversion"
+        elif result["success"] and result["warnings"]:
+            result["message"] = f"Conversion completed with {len(result['warnings'])} warnings"
 
         return result
 

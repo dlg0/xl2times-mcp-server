@@ -184,14 +184,16 @@ class TestXL2TimesWrapper:
         Processing file...
         WARNING: Dropping table with unrecognized tag
         WARNING: Missing data in column X
+        FutureWarning: Setting an item of incompatible dtype is deprecated
         Excel files successfully converted to CSV
         """
         
         parsed = wrapper._parse_output(stdout, "")
         
         assert parsed["success"] is True
-        assert len(parsed["warnings"]) == 2
+        assert len(parsed["warnings"]) == 3
         assert any("unrecognized tag" in w for w in parsed["warnings"])
+        assert any("incompatible dtype" in w for w in parsed["warnings"])
 
     def test_parse_output_with_errors(self, wrapper):
         """Test parsing output with errors."""
