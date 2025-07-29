@@ -58,27 +58,23 @@ class XL2TimesHandler:
                 verbose=verbose
             )
 
-            # Build response
+            # Build response optimized for LLM consumption
             execution_time = time.time() - start_time
-            
-            # Extract output files if output directory exists
-            output_files = []
-            if output_dir and Path(output_dir).exists():
-                output_files = [str(f) for f in Path(output_dir).rglob("*") if f.is_file()]
+            wrapper_result["execution_time"] = execution_time
 
-            result = {
-                "success": wrapper_result.get("success", False),
-                "output_files": output_files,
-                "output_directory": output_dir or "default_output",
-                "logs": wrapper_result.get("stdout", ""),
-                "warnings": wrapper_result.get("warnings", []),
-                "errors": wrapper_result.get("errors", []),
-                "raw_tables": None,  # TODO: Parse raw_tables.txt if only_read=True
-                "execution_time": execution_time,
-                "message": wrapper_result.get("message", ""),
-                "files_processed": wrapper_result.get("files_processed", []),
-                "command": wrapper_result.get("command", "")
-            }
+            # Extract raw_tables content if only_read was used
+            raw_tables_content = None
+            if only_read and output_dir:
+                raw_tables_path = Path(output_dir) / "raw_tables.txt"
+                if raw_tables_path.exists():
+                    try:
+                        raw_tables_content = raw_tables_path.read_text(encoding='utf-8')
+                    except Exception as e:
+                        logger.warning(f"Could not read raw_tables.txt: {e}")
+
+            # Return wrapper result directly (already optimized for LLM)
+            result = wrapper_result.copy()
+            result["raw_tables"] = raw_tables_content
 
             logger.info(f"xl2times_run completed in {execution_time:.2f}s")
             return result
@@ -87,19 +83,20 @@ class XL2TimesHandler:
             logger.error(f"xl2times execution failed: {e}")
             execution_time = time.time() - start_time
             
-            # Return error response
+            # Return error response in LLM-optimized format
             return {
                 "success": False,
+                "return_code": -1,
+                "log_file": "",
                 "output_files": [],
-                "output_directory": output_dir or "default_output",
-                "logs": "",
+                "output_directory": output_dir or "",
                 "warnings": [],
                 "errors": [str(e)],
-                "raw_tables": None,
-                "execution_time": execution_time,
-                "message": f"xl2times execution failed: {str(e)}",
                 "files_processed": [],
-                "command": ""
+                "execution_time": execution_time,
+                "command": "",
+                "message": f"xl2times execution failed: {str(e)}",
+                "raw_tables": None
             }
 
         except Exception as e:

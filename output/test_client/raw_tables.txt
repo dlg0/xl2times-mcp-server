@@ -84,6 +84,30 @@ Attribute,CommName,*Unit,2005
 Demand,TPSCOA,PJ,13413.96
 
 
+sheetname: Trans Tables
+range: B6:P7
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
+tag: ~TFM_UPD
+types: TimeSlice (object), LimType (object), Attribute (object), Year (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object), Pset_PD (object), Pset_CI (object), Pset_CO (object), Cset_Set (object), Cset_CN (object), Cset_CD (object)
+TimeSlice,LimType,Attribute,Year,AllRegions,REG1,Pset_Set,Pset_PN,Pset_PD,Pset_CI,Pset_CO,Cset_Set,Cset_CN,Cset_CD
+
+
+sheetname: Trans Tables
+range: B14:P15
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
+tag: ~TFM_INS
+types: TimeSlice (object), LimType (object), Attribute (object), Year (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object), Pset_PD (object), Pset_CI (object), Pset_CO (object), Cset_Set (object), Cset_CN (object), Cset_CD (object)
+TimeSlice,LimType,Attribute,Year,AllRegions,REG1,Pset_Set,Pset_PN,Pset_PD,Pset_CI,Pset_CO,Cset_Set,Cset_CN,Cset_CD
+
+
+sheetname: FILL Table
+range: B3:N4
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
+tag: ~TFM_FILL
+types: Operation_Sum_Avg_Count (object), Scenario Name (object), TimeSlice (object), LimType (object), Attribute (object), Year (object), Other_Indexes (object), Tech_Comm_Info (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object)
+Operation_Sum_Avg_Count,Scenario Name,TimeSlice,LimType,Attribute,Year,Other_Indexes,Tech_Comm_Info,AllRegions,REG1,Pset_Set,Pset_PN
+
+
 sheetname: Region-Time Slices
 range: B4:D6
 filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
@@ -339,29 +363,5 @@ ELE,,,*NUC,,PP_NUCLEAR,,AND,AND,
 ELE,,,"*RNW,*WIN,*SOL,*BIO,*HYD",,PP_RENEW,,AND,AND,
 ELE,"ELCTEGAS00,ELCTEOIL00,ELCTECOA00",,,,PPFOSSIL,,AND,AND,
 IRE,T*,,,,TRD_ENDO,,AND,AND,
-
-
-sheetname: Trans Tables
-range: B6:P7
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
-tag: ~TFM_UPD
-types: TimeSlice (object), LimType (object), Attribute (object), Year (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object), Pset_PD (object), Pset_CI (object), Pset_CO (object), Cset_Set (object), Cset_CN (object), Cset_CD (object)
-TimeSlice,LimType,Attribute,Year,AllRegions,REG1,Pset_Set,Pset_PN,Pset_PD,Pset_CI,Pset_CO,Cset_Set,Cset_CN,Cset_CD
-
-
-sheetname: Trans Tables
-range: B14:P15
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
-tag: ~TFM_INS
-types: TimeSlice (object), LimType (object), Attribute (object), Year (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object), Pset_PD (object), Pset_CI (object), Pset_CO (object), Cset_Set (object), Cset_CN (object), Cset_CD (object)
-TimeSlice,LimType,Attribute,Year,AllRegions,REG1,Pset_Set,Pset_PN,Pset_PD,Pset_CI,Pset_CO,Cset_Set,Cset_CN,Cset_CD
-
-
-sheetname: FILL Table
-range: B3:N4
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/BY_Trans.xlsx
-tag: ~TFM_FILL
-types: Operation_Sum_Avg_Count (object), Scenario Name (object), TimeSlice (object), LimType (object), Attribute (object), Year (object), Other_Indexes (object), Tech_Comm_Info (object), AllRegions (object), REG1 (object), Pset_Set (object), Pset_PN (object)
-Operation_Sum_Avg_Count,Scenario Name,TimeSlice,LimType,Attribute,Year,Other_Indexes,Tech_Comm_Info,AllRegions,REG1,Pset_Set,Pset_PN
 
 

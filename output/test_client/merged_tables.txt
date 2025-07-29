@@ -25,49 +25,49 @@ COMMODITY_UNIT,PJ,SysSettings,syssettings,main,SYSSETTINGS
 
 
 tag: ~FI_COMM
-types: csets (object), commodity (object), description (object), unit (object), limtype (object), region (object), ctslvl (object), source_filename (object), module_type (object), submodule (object), module_name (object)
-csets,commodity,description,unit,limtype,region,ctslvl,source_filename,module_type,submodule,module_name
-NRG,COA,SOLID FUELS,PJ,,REG1,,VT_REG_PRI_V01,base,main,BASE
-DEM,TPSCOA,DEMAND TOTAL PRIMARY SUPPLY - COA,PJ,,REG1,,VT_REG_PRI_V01,base,main,BASE
+types: csets (object), commodity (object), description (object), unit (object), region (object), ctslvl (object), limtype (object), source_filename (object), module_type (object), submodule (object), module_name (object)
+csets,commodity,description,unit,region,ctslvl,limtype,source_filename,module_type,submodule,module_name
+NRG,COA,SOLID FUELS,PJ,REG1,,,VT_REG_PRI_V01,base,main,BASE
+DEM,TPSCOA,DEMAND TOTAL PRIMARY SUPPLY - COA,PJ,REG1,,,VT_REG_PRI_V01,base,main,BASE
 
 
 tag: ~FI_PROCESS
-types: sets (object), process (object), description (object), tact (object), vintage (object), primarycg (object), tslvl (object), region (object), source_filename (object), module_type (object), submodule (object), module_name (object), tcap (object)
-sets,process,description,tact,vintage,primarycg,tslvl,region,source_filename,module_type,submodule,module_name,tcap
-IRE,MINCOA1,DOMESTIC SUPPLY OF SOLID FUELS STEP 1,PJ,,,ANNUAL,REG1,VT_REG_PRI_V01,base,main,BASE,
-IRE,MINCOA2,DOMESTIC SUPPLY OF SOLID FUELS STEP 2,PJ,,,ANNUAL,REG1,VT_REG_PRI_V01,base,main,BASE,
-IRE,MINCOA3,DOMESTIC SUPPLY OF SOLID FUELS STEP 3,PJ,,,ANNUAL,REG1,VT_REG_PRI_V01,base,main,BASE,
-IRE,IMPCOA1,IMPORT OF SOLID FUELS STEP 1,PJ,,,ANNUAL,REG1,VT_REG_PRI_V01,base,main,BASE,
-IRE,EXPCOA1,EXPORT OF SOLID FUELS STEP 1,PJ,,,ANNUAL,REG1,VT_REG_PRI_V01,base,main,BASE,
-DMD,DTPSCOA,DEMAND TECHNOLOGY TOTAL PRIMARY SUPPLY - COA,PJ,,,ANNUAL,REG1,VT_REG_PRI_V01,base,main,BASE,PJA
+types: sets (object), process (object), description (object), tact (object), region (object), primarycg (object), vintage (object), tslvl (object), source_filename (object), module_type (object), submodule (object), module_name (object), tcap (object)
+sets,process,description,tact,region,primarycg,vintage,tslvl,source_filename,module_type,submodule,module_name,tcap
+IRE,MINCOA1,DOMESTIC SUPPLY OF SOLID FUELS STEP 1,PJ,REG1,,,ANNUAL,VT_REG_PRI_V01,base,main,BASE,
+IRE,MINCOA2,DOMESTIC SUPPLY OF SOLID FUELS STEP 2,PJ,REG1,,,ANNUAL,VT_REG_PRI_V01,base,main,BASE,
+IRE,MINCOA3,DOMESTIC SUPPLY OF SOLID FUELS STEP 3,PJ,REG1,,,ANNUAL,VT_REG_PRI_V01,base,main,BASE,
+IRE,IMPCOA1,IMPORT OF SOLID FUELS STEP 1,PJ,REG1,,,ANNUAL,VT_REG_PRI_V01,base,main,BASE,
+IRE,EXPCOA1,EXPORT OF SOLID FUELS STEP 1,PJ,REG1,,,ANNUAL,VT_REG_PRI_V01,base,main,BASE,
+DMD,DTPSCOA,DEMAND TECHNOLOGY TOTAL PRIMARY SUPPLY - COA,PJ,REG1,,,ANNUAL,VT_REG_PRI_V01,base,main,BASE,PJA
 
 
 tag: ~FI_T
-types: limtype (object), year (object), process (object), region (object), attribute (object), value (object), source_filename (object), module_type (object), module_name (object), commodity (object), year2 (object), other_indexes (object), timeslice (object), currency (object), cg (object)
-limtype,year,process,region,attribute,value,source_filename,module_type,module_name,commodity,year2,other_indexes,timeslice,currency,cg
-UP,2005,MINCOA1,REG1,ACT_CUM,80000,VT_REG_PRI_V01,base,BASE,,EOH,,,MEURO05,
-UP,2005,MINCOA2,REG1,ACT_CUM,160000,VT_REG_PRI_V01,base,BASE,,EOH,,,MEURO05,
-UP,2005,MINCOA3,REG1,ACT_CUM,320000,VT_REG_PRI_V01,base,BASE,,EOH,,,MEURO05,
-UP,2005,MINCOA1,REG1,IRE_PRICE,2,VT_REG_PRI_V01,base,BASE,COA,,IMP,ANNUAL,MEURO05,
-UP,2005,MINCOA2,REG1,IRE_PRICE,2.5,VT_REG_PRI_V01,base,BASE,COA,,IMP,ANNUAL,MEURO05,
-,2005,MINCOA3,REG1,IRE_PRICE,3,VT_REG_PRI_V01,base,BASE,COA,,IMP,ANNUAL,MEURO05,
-,2005,IMPCOA1,REG1,IRE_PRICE,2.75,VT_REG_PRI_V01,base,BASE,COA,,IMP,ANNUAL,MEURO05,
-UP,2005,EXPCOA1,REG1,IRE_PRICE,2.75,VT_REG_PRI_V01,base,BASE,COA,,EXP,ANNUAL,MEURO05,
-UP,2005,MINCOA1,REG1,ACT_BND,6073.7685,VT_REG_PRI_V01,base,BASE,,,,ANNUAL,MEURO05,
-UP,2006,MINCOA1,REG1,ACT_BND,6073.7685,VT_REG_PRI_V01,base,BASE,,,,ANNUAL,MEURO05,
-UP,2005,MINCOA2,REG1,ACT_BND,2024.5895,VT_REG_PRI_V01,base,BASE,,,,ANNUAL,MEURO05,
-UP,2006,MINCOA2,REG1,ACT_BND,2024.5895,VT_REG_PRI_V01,base,BASE,,,,ANNUAL,MEURO05,
-UP,2005,EXPCOA1,REG1,ACT_BND,1147.069,VT_REG_PRI_V01,base,BASE,,,,ANNUAL,MEURO05,
-UP,2006,EXPCOA1,REG1,ACT_BND,1147.069,VT_REG_PRI_V01,base,BASE,,,,ANNUAL,MEURO05,
-,2005,DTPSCOA,REG1,ACT_EFF,1,VT_REG_PRI_V01,base,BASE,,,,ANNUAL,MEURO05,ACT
-UP,2005,DTPSCOA,REG1,NCAP_AFA,0.95,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,
-,2005,DTPSCOA,REG1,NCAP_COST,10,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,
-,2005,DTPSCOA,REG1,NCAP_FOM,0.2,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,
-,2005,DTPSCOA,REG1,NCAP_TLIFE,20,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,
+types: process (object), year (object), limtype (object), region (object), attribute (object), value (object), source_filename (object), module_type (object), module_name (object), commodity (object), cg (object), timeslice (object), other_indexes (object), currency (object), year2 (object)
+process,year,limtype,region,attribute,value,source_filename,module_type,module_name,commodity,cg,timeslice,other_indexes,currency,year2
+MINCOA1,2005,UP,REG1,ACT_CUM,80000,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,EOH
+MINCOA2,2005,UP,REG1,ACT_CUM,160000,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,EOH
+MINCOA3,2005,UP,REG1,ACT_CUM,320000,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,EOH
+MINCOA1,2005,UP,REG1,IRE_PRICE,2,VT_REG_PRI_V01,base,BASE,COA,,ANNUAL,IMP,MEURO05,
+MINCOA2,2005,UP,REG1,IRE_PRICE,2.5,VT_REG_PRI_V01,base,BASE,COA,,ANNUAL,IMP,MEURO05,
+MINCOA3,2005,,REG1,IRE_PRICE,3,VT_REG_PRI_V01,base,BASE,COA,,ANNUAL,IMP,MEURO05,
+IMPCOA1,2005,,REG1,IRE_PRICE,2.75,VT_REG_PRI_V01,base,BASE,COA,,ANNUAL,IMP,MEURO05,
+EXPCOA1,2005,UP,REG1,IRE_PRICE,2.75,VT_REG_PRI_V01,base,BASE,COA,,ANNUAL,EXP,MEURO05,
+MINCOA1,2005,UP,REG1,ACT_BND,6073.7685,VT_REG_PRI_V01,base,BASE,,,ANNUAL,,MEURO05,
+MINCOA1,2006,UP,REG1,ACT_BND,6073.7685,VT_REG_PRI_V01,base,BASE,,,ANNUAL,,MEURO05,
+MINCOA2,2005,UP,REG1,ACT_BND,2024.5895,VT_REG_PRI_V01,base,BASE,,,ANNUAL,,MEURO05,
+MINCOA2,2006,UP,REG1,ACT_BND,2024.5895,VT_REG_PRI_V01,base,BASE,,,ANNUAL,,MEURO05,
+EXPCOA1,2005,UP,REG1,ACT_BND,1147.069,VT_REG_PRI_V01,base,BASE,,,ANNUAL,,MEURO05,
+EXPCOA1,2006,UP,REG1,ACT_BND,1147.069,VT_REG_PRI_V01,base,BASE,,,ANNUAL,,MEURO05,
+DTPSCOA,2005,,REG1,ACT_EFF,1,VT_REG_PRI_V01,base,BASE,,ACT,ANNUAL,,MEURO05,
+DTPSCOA,2005,UP,REG1,NCAP_AFA,0.95,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,
+DTPSCOA,2005,,REG1,NCAP_COST,10,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,
+DTPSCOA,2005,,REG1,NCAP_FOM,0.2,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,
+DTPSCOA,2005,,REG1,NCAP_TLIFE,20,VT_REG_PRI_V01,base,BASE,,,,,MEURO05,
 ,2005,,REG1,COM_PROJ,13413.96,VT_REG_PRI_V01,base,BASE,TPSCOA,,,,MEURO05,
 ,2005,,REG1,G_DYEAR,2005,SysSettings,syssettings,SYSSETTINGS,,,,,MEURO05,
 ,2005,,REG1,G_DRATE,0.05,SysSettings,syssettings,SYSSETTINGS,,,,,MEURO05,
-,2005,,REG1,G_YRFR,1,SysSettings,syssettings,SYSSETTINGS,,,,ANNUAL,MEURO05,
+,2005,,REG1,G_YRFR,1,SysSettings,syssettings,SYSSETTINGS,,,ANNUAL,,MEURO05,
 
 
 tag: ~STARTYEAR

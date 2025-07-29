@@ -1,89 +1,3 @@
-sheetname: Pri_COA
-range: K3:T6
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
-tag: ~FI_Comm
-types: Csets (object), Region (object), CommName (object), CommDesc (object), Unit (object), LimType (object), CTSLvl (object), PeakTS (object), Ctype (object)
-Csets,Region,CommName,CommDesc,Unit,LimType,CTSLvl,PeakTS,Ctype
-*Commodity Set Membership,Region Name,Commodity Name,Commodity Description,Unit,Sense of the Balance EQN.,Timeslice Level,Peak Monitoring,Electricity Indicator
-NRG,,COA,Solid Fuels,PJ,,,,
-
-
-sheetname: Pri_COA
-range: B8:J19
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
-tag: ~FI_T
-types: TechName (object), Comm-IN (object), Comm-OUT (object), Year (object), LimType (object), CUM (object), COST (object), ACT_BND (object)
-TechName,Comm-IN,Comm-OUT,Year,LimType,CUM,COST,ACT_BND
-*Technology Name,Input Commodity,Output Commodity,,,Reserves Cumulative Value,Cost,Annual Production Bound
-*Units,,,,,PJ,M€2005/PJ,PJ
-MINCOA1,,COA,2005,UP,80000,2,6073.7685
-,,,2006,UP,,,6073.7685
-MINCOA2,,COA,2005,UP,160000,2.5,2024.5895
-,,,2006,UP,,,2024.5895
-MINCOA3,,COA,,,320000,3,
-IMPCOA1,,COA,,,,2.75,
-EXPCOA1,COA,,2005,UP,,2.75,1147.069
-,,,2006,UP,,,1147.069
-
-
-sheetname: Pri_COA
-range: K8:T16
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
-tag: ~FI_Process
-types: Sets (object), Region (object), TechName (object), TechDesc (object), Tact (object), Tcap (object), Tslvl (object), PrimaryCG (object), Vintage (object)
-Sets,Region,TechName,TechDesc,Tact,Tcap,Tslvl,PrimaryCG,Vintage
-*Process Set Membership,Region Name,Technology Name,Technology Description,Activity Unit,Capacity Unit,TimeSlice level of Process Activity,Primary Commodity Group,Vintage Tracking
-*,,,,,,,,
-MIN,,MINCOA1,Domestic Supply of Solid Fuels Step 1,PJ,,,,
-,,MINCOA2,Domestic Supply of Solid Fuels Step 2,PJ,,,,
-,,MINCOA3,Domestic Supply of Solid Fuels Step 3,PJ,,,,
-IMP,,IMPCOA1,Import of Solid Fuels Step 1,PJ,,,,
-EXP,,EXPCOA1,Export of Solid Fuels Step 1,PJ,,,,
-
-
-sheetname: DemTechs_TPS
-range: L3:U6
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
-tag: ~FI_Comm
-types: Csets (object), Region (object), CommName (object), CommDesc (object), Unit (object), LimType (object), CTSLvl (object), PeakTS (object), Ctype (object)
-Csets,Region,CommName,CommDesc,Unit,LimType,CTSLvl,PeakTS,Ctype
-*Commodity Set Membership,Region Name,Commodity Name,Commodity Description,Unit,Sense of the Balance EQN.,Timeslice Level,Peak Monitoring,Electricity Indicator
-DEM,,TPSCOA,Demand Total Primary Supply - COA,PJ,,,,
-
-
-sheetname: DemTechs_TPS
-range: B9:K13
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
-tag: ~FI_T
-types: TechName (object), Comm-IN (object), Comm-OUT (object), STOCK (object), EFF (object), AFA (object), INVCOST (object), FIXOM (object), LIFE (object)
-TechName,Comm-IN,Comm-OUT,STOCK,EFF,AFA,INVCOST,FIXOM,LIFE
-*Technology Name,Input Commodity,Output Commodity,Existing Installed Capacity,Efficiency,Utilisation Factor,Invesctment Cost,Fixed O&M Cost,Lifetime
-*Units,,,PJa,,,M€2005/PJ,M€2005/PJa,Years
-DTPSCOA,COA,TPSCOA,,1,0.95,10,0.2,20
-
-
-sheetname: DemTechs_TPS
-range: L9:U13
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
-tag: ~FI_Process
-types: Sets (object), Region (object), TechName (object), TechDesc (object), Tact (object), Tcap (object), Tslvl (object), PrimaryCG (object), Vintage (object)
-Sets,Region,TechName,TechDesc,Tact,Tcap,Tslvl,PrimaryCG,Vintage
-*Process Set Membership,Region Name,Technology Name,Technology Description,Activity Unit,Capacity Unit,TimeSlice level of Process Activity,Primary Commodity Group,Vintage Tracking
-*,,,,,,,,
-DMD,,DTPSCOA,Demand Technology Total Primary Supply - COA,PJ,PJa,,,
-
-
-sheetname: Demands
-range: B6:F10
-filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
-tag: ~FI_T
-types: Attribute (object), CommName (object), *Unit (object), 2005 (object)
-Attribute,CommName,*Unit,2005
-*,Demand Commodity Name,Demand Unit,Demand Value
-*Units,,,PJ
-Demand,TPSCOA,PJ,13413.96
-
-
 sheetname: Region-Time Slices
 range: B4:D6
 filename: /Users/gre538/Desktop/Demo_models/DemoS_001/SysSettings.xlsx
@@ -191,6 +105,92 @@ tag: ~TFM_COMGRP
 types: Name (object), Description (object), Cset_Set (object), Cset_CN (object), Cset_CD (object), AllRegions (object), REG1 (object), REG2 (object)
 Name,Description,Cset_Set,Cset_CN,Cset_CD,AllRegions,REG1,REG2
 \I:Commodity Group Name,Commodity Group Description,,,,,,
+
+
+sheetname: Pri_COA
+range: K3:T6
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_Comm
+types: Csets (object), Region (object), CommName (object), CommDesc (object), Unit (object), LimType (object), CTSLvl (object), PeakTS (object), Ctype (object)
+Csets,Region,CommName,CommDesc,Unit,LimType,CTSLvl,PeakTS,Ctype
+*Commodity Set Membership,Region Name,Commodity Name,Commodity Description,Unit,Sense of the Balance EQN.,Timeslice Level,Peak Monitoring,Electricity Indicator
+NRG,,COA,Solid Fuels,PJ,,,,
+
+
+sheetname: Pri_COA
+range: B8:J19
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_T
+types: TechName (object), Comm-IN (object), Comm-OUT (object), Year (object), LimType (object), CUM (object), COST (object), ACT_BND (object)
+TechName,Comm-IN,Comm-OUT,Year,LimType,CUM,COST,ACT_BND
+*Technology Name,Input Commodity,Output Commodity,,,Reserves Cumulative Value,Cost,Annual Production Bound
+*Units,,,,,PJ,M€2005/PJ,PJ
+MINCOA1,,COA,2005,UP,80000,2,6073.7685
+,,,2006,UP,,,6073.7685
+MINCOA2,,COA,2005,UP,160000,2.5,2024.5895
+,,,2006,UP,,,2024.5895
+MINCOA3,,COA,,,320000,3,
+IMPCOA1,,COA,,,,2.75,
+EXPCOA1,COA,,2005,UP,,2.75,1147.069
+,,,2006,UP,,,1147.069
+
+
+sheetname: Pri_COA
+range: K8:T16
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_Process
+types: Sets (object), Region (object), TechName (object), TechDesc (object), Tact (object), Tcap (object), Tslvl (object), PrimaryCG (object), Vintage (object)
+Sets,Region,TechName,TechDesc,Tact,Tcap,Tslvl,PrimaryCG,Vintage
+*Process Set Membership,Region Name,Technology Name,Technology Description,Activity Unit,Capacity Unit,TimeSlice level of Process Activity,Primary Commodity Group,Vintage Tracking
+*,,,,,,,,
+MIN,,MINCOA1,Domestic Supply of Solid Fuels Step 1,PJ,,,,
+,,MINCOA2,Domestic Supply of Solid Fuels Step 2,PJ,,,,
+,,MINCOA3,Domestic Supply of Solid Fuels Step 3,PJ,,,,
+IMP,,IMPCOA1,Import of Solid Fuels Step 1,PJ,,,,
+EXP,,EXPCOA1,Export of Solid Fuels Step 1,PJ,,,,
+
+
+sheetname: DemTechs_TPS
+range: L3:U6
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_Comm
+types: Csets (object), Region (object), CommName (object), CommDesc (object), Unit (object), LimType (object), CTSLvl (object), PeakTS (object), Ctype (object)
+Csets,Region,CommName,CommDesc,Unit,LimType,CTSLvl,PeakTS,Ctype
+*Commodity Set Membership,Region Name,Commodity Name,Commodity Description,Unit,Sense of the Balance EQN.,Timeslice Level,Peak Monitoring,Electricity Indicator
+DEM,,TPSCOA,Demand Total Primary Supply - COA,PJ,,,,
+
+
+sheetname: DemTechs_TPS
+range: B9:K13
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_T
+types: TechName (object), Comm-IN (object), Comm-OUT (object), STOCK (object), EFF (object), AFA (object), INVCOST (object), FIXOM (object), LIFE (object)
+TechName,Comm-IN,Comm-OUT,STOCK,EFF,AFA,INVCOST,FIXOM,LIFE
+*Technology Name,Input Commodity,Output Commodity,Existing Installed Capacity,Efficiency,Utilisation Factor,Invesctment Cost,Fixed O&M Cost,Lifetime
+*Units,,,PJa,,,M€2005/PJ,M€2005/PJa,Years
+DTPSCOA,COA,TPSCOA,,1,0.95,10,0.2,20
+
+
+sheetname: DemTechs_TPS
+range: L9:U13
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_Process
+types: Sets (object), Region (object), TechName (object), TechDesc (object), Tact (object), Tcap (object), Tslvl (object), PrimaryCG (object), Vintage (object)
+Sets,Region,TechName,TechDesc,Tact,Tcap,Tslvl,PrimaryCG,Vintage
+*Process Set Membership,Region Name,Technology Name,Technology Description,Activity Unit,Capacity Unit,TimeSlice level of Process Activity,Primary Commodity Group,Vintage Tracking
+*,,,,,,,,
+DMD,,DTPSCOA,Demand Technology Total Primary Supply - COA,PJ,PJa,,,
+
+
+sheetname: Demands
+range: B6:F10
+filename: /Users/gre538/Desktop/Demo_models/DemoS_001/VT_REG_PRI_V01.xlsx
+tag: ~FI_T
+types: Attribute (object), CommName (object), *Unit (object), 2005 (object)
+Attribute,CommName,*Unit,2005
+*,Demand Commodity Name,Demand Unit,Demand Value
+*Units,,,PJ
+Demand,TPSCOA,PJ,13413.96
 
 
 sheetname: VEDA_Sets-Comm

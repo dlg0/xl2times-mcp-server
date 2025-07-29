@@ -2,7 +2,7 @@
 
 import asyncio
 from pathlib import Path
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch, mock_open
 
 import pytest
 
@@ -74,13 +74,14 @@ class TestXL2TimesWrapper:
     @pytest.mark.asyncio
     async def test_run_success(self, wrapper):
         """Test successful xl2times execution."""
-        with patch('asyncio.create_subprocess_exec') as mock_exec:
+        with patch('asyncio.create_subprocess_exec') as mock_exec, \
+             patch('builtins.open', mock_open()) as mock_file:
             # Mock process
             mock_process = AsyncMock()
             mock_process.returncode = 0
             mock_process.communicate = AsyncMock(return_value=(
                 b"Excel files successfully converted to CSV",
-                b""
+                None  # stderr combined into stdout
             ))
             mock_exec.return_value = mock_process
 
@@ -90,9 +91,10 @@ class TestXL2TimesWrapper:
             )
 
             assert result["success"] is True
-            assert "Excel files successfully converted" in result["stdout"]
-            assert result["stderr"] == ""
             assert result["return_code"] == 0
+            assert result["log_file"]  # Should have log file path
+            assert "output_files" in result
+            assert "message" in result
 
     @pytest.mark.asyncio
     async def test_run_with_error(self, wrapper):

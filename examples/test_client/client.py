@@ -76,13 +76,13 @@ async def test_xl2times_server():
             except Exception as e:
                 print(f"❌ Unexpected error: {e}")
             
-            # Test xl2times_run tool with real VEDA model
-            print("\n🧪 Testing xl2times_run with DemoS_001 VEDA model...")
+            # Test xl2times_run tool with real VEDA model (LLM-optimized)
+            print("\n🧪 Testing xl2times_run with DemoS_001 VEDA model (LLM-optimized)...")
             try:
                 test_args = {
                     "input": "veda-model-examples/DemoS_001",
-                    "output_dir": "output/test_client",
-                    "verbose": 1
+                    "output_dir": "output/test_client_llm",
+                    # verbose will default to 2 (-vv) for LLM requirements
                 }
                 result = await session.call_tool("xl2times_run", arguments=test_args)
                 if result.content and len(result.content) > 0:
@@ -91,8 +91,10 @@ async def test_xl2times_server():
                         response = json.loads(content.text)
                         
                         print(f"✅ Success: {response.get('success', False)}")
+                        print(f"🔢 Return code: {response.get('return_code', 'N/A')}")
                         print(f"📄 Message: {response.get('message', '')}")
                         print(f"⏱️  Execution time: {response.get('execution_time', 0):.2f}s")
+                        print(f"📋 Log file: {response.get('log_file', 'N/A')}")
                         
                         if response.get('files_processed'):
                             print(f"📁 Files processed: {len(response['files_processed'])}")
@@ -100,10 +102,10 @@ async def test_xl2times_server():
                                 print(f"   - {f}")
                         
                         if response.get('output_files'):
-                            print(f"📤 Output files generated: {len(response['output_files'])}")
-                            # Show first 5 output files
+                            print(f"📤 Output files ({len(response['output_files'])}):")
+                            # Show first 5 output files with full paths for LLM
                             for f in response['output_files'][:5]:
-                                print(f"   - {f.split('/')[-1]}")  # Just filename
+                                print(f"   - {f}")
                             if len(response['output_files']) > 5:
                                 print(f"   ... and {len(response['output_files']) - 5} more")
                         

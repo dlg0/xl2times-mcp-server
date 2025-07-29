@@ -3,6 +3,8 @@
 import asyncio
 import os
 import re
+import tempfile
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
@@ -34,7 +36,7 @@ class XL2TimesWrapper:
         dd: bool = False,
         only_read: bool = False,
         no_cache: bool = False,
-        verbose: int = 0
+        verbose: int = 2  # Default to -vv for LLM requirements
     ) -> Dict[str, Any]:
         """
         Execute xl2times with the specified parameters.
@@ -56,6 +58,14 @@ class XL2TimesWrapper:
         Raises:
             XL2TimesError: If execution fails
         """
+        # Create log file for this execution
+        timestamp = int(time.time())
+        log_file = Path(config.TEMP_DIR) / f"xl2times_run_{timestamp}.log"
+        log_file.parent.mkdir(parents=True, exist_ok=True)
+
+        # Ensure verbose is at least 2 (LLM requirement)
+        verbose = max(verbose, 2)
+
         # Build command
         cmd = self._build_command(
             input_files=input_files,
@@ -70,19 +80,20 @@ class XL2TimesWrapper:
         )
 
         logger.info(f"Executing xl2times command: {' '.join(cmd)}")
+        logger.info(f"Logging to: {log_file}")
 
         try:
             # Execute command
             process = await asyncio.create_subprocess_exec(
                 *cmd,
                 stdout=asyncio.subprocess.PIPE,
-                stderr=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.STDOUT,  # Combine stderr into stdout
                 cwd=os.getcwd()
             )
 
             # Wait for completion with timeout
             try:
-                stdout, stderr = await asyncio.wait_for(
+                stdout, _ = await asyncio.wait_for(
                     process.communicate(),
                     timeout=self.timeout
                 )
@@ -93,23 +104,47 @@ class XL2TimesWrapper:
 
             # Decode output
             stdout_str = stdout.decode('utf-8', errors='replace')
-            stderr_str = stderr.decode('utf-8', errors='replace')
 
-            # Check return code
-            if process.returncode != 0:
-                error_msg = stderr_str or stdout_str or f"xl2times failed with return code {process.returncode}"
-                raise XL2TimesError(error_msg)
+            # Write full output to log file
+            with open(log_file, 'w', encoding='utf-8') as f:
+                f.write(f"# XL2TIMES Execution Log\n")
+                f.write(f"# Command: {' '.join(cmd)}\n")
+                f.write(f"# Timestamp: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(timestamp))}\n")
+                f.write(f"# Return Code: {process.returncode}\n")
+                f.write(f"# Working Directory: {os.getcwd()}\n\n")
+                f.write(stdout_str)
 
-            # Parse output
-            result = self._parse_output(stdout_str, stderr_str)
-            result.update({
-                "stdout": stdout_str,
-                "stderr": stderr_str,
+            # Collect all output files if output_dir exists
+            output_files = []
+            if output_dir and Path(output_dir).exists():
+                output_files = [str(f) for f in Path(output_dir).rglob("*") if f.is_file()]
+                # Sort for consistent ordering
+                output_files.sort()
+
+            # Parse output for status and warnings
+            parsed_result = self._parse_output(stdout_str, "")
+
+            # Build final result for LLM
+            result = {
+                "success": process.returncode == 0 and parsed_result.get("success", False),
                 "return_code": process.returncode,
-                "command": ' '.join(cmd)
-            })
+                "log_file": str(log_file),
+                "output_files": output_files,
+                "output_directory": output_dir or "",
+                "warnings": parsed_result.get("warnings", []),
+                "errors": parsed_result.get("errors", []),
+                "files_processed": parsed_result.get("files_processed", []),
+                "execution_time": 0,  # Will be set by handler
+                "command": ' '.join(cmd),
+                "message": self._generate_llm_message(process.returncode, parsed_result, len(output_files))
+            }
 
-            logger.info("xl2times execution completed successfully")
+            # Add errors if non-zero return code
+            if process.returncode != 0:
+                result["errors"].append(f"xl2times exited with code {process.returncode}")
+                result["success"] = False
+
+            logger.info(f"xl2times execution completed with return code {process.returncode}")
             return result
 
         except FileNotFoundError:
@@ -194,13 +229,24 @@ class XL2TimesWrapper:
                 result["message"] = "Excel files successfully converted"
                 break
 
-        # Extract processed files
+        # Extract processed files from various log formats
         for line in stdout.split('\n'):
-            # Look for file processing messages
-            if re.match(r'.*Processing\s+(\S+\.xlsx?)', line):
+            # Look for file processing messages (multiple patterns for different verbosity levels)
+            if re.search(r'Processing\s+(\S+\.xlsx?)', line):
                 match = re.search(r'Processing\s+(\S+\.xlsx?)', line)
                 if match:
                     result["files_processed"].append(match.group(1))
+            elif re.search(r'Using cached data for.*?([^/\\]+\.xlsx?)', line):
+                # Match cached file loading messages from -vv output
+                match = re.search(r'Using cached data for.*?([^/\\]+\.xlsx?)', line)
+                if match:
+                    filename = match.group(1)
+                    if filename not in result["files_processed"]:
+                        result["files_processed"].append(filename)
+            elif re.search(r'Loading \d+ files from', line):
+                # Also look for the "Loading X files from directory" message
+                # This gives us the file count but we'll get individual files from other patterns
+                pass
 
         # Extract warnings from stdout
         for line in stdout.split('\n'):
@@ -252,6 +298,22 @@ class XL2TimesWrapper:
             result["message"] = f"Conversion completed with {len(result['warnings'])} warnings"
 
         return result
+
+    def _generate_llm_message(self, return_code: int, parsed_result: Dict[str, Any], output_file_count: int) -> str:
+        """Generate a concise message for LLM consumption."""
+        if return_code == 0:
+            files_processed = len(parsed_result.get("files_processed", []))
+            warnings_count = len(parsed_result.get("warnings", []))
+            
+            msg_parts = [f"Successfully processed {files_processed} Excel files"]
+            if output_file_count > 0:
+                msg_parts.append(f"generated {output_file_count} output files")
+            if warnings_count > 0:
+                msg_parts.append(f"with {warnings_count} warnings")
+            
+            return ", ".join(msg_parts) + "."
+        else:
+            return f"xl2times execution failed with return code {return_code}."
 
     async def check_xl2times_available(self) -> bool:
         """Check if xl2times is available and executable."""
